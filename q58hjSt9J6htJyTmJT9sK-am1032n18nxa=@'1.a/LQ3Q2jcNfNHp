@@ -1,0 +1,158 @@
+local AnSit = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AnSitDz/AnSitHub/main/OrionUiPre')))()
+
+        local Cac = AnSit:MakeWindow({Name = "AnSit | Angel Fighting Style", HidePremium = true, IntroText = "AnSit Hub", Icon = "rbxassetid://15102383203", SaveConfig = true, ConfigFolder = "AnSit Hub"})
+
+        Porn = game.Players.LocalPlayer.Name
+
+        local main = Cac:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://1624072056",
+        PremiumOnly = false
+        })
+     
+        local sex = main:AddSection({
+        Name = "Angel Fighting Style"
+        })
+
+function M1()
+local AngelM1 = require(game:GetService("ReplicatedStorage").Effect.Container.Angel.M1)
+local Utils = require(game.ReplicatedStorage.Util)
+local plr = game.Players.LocalPlayer
+local mode = 1
+
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "M1"
+tool.RequiresHandle = false
+
+local M1Anims = {"AngelM1", "AngelM2", "AngelM3", "AngelM4"}
+
+for i, v in M1Anims do
+    Utils.Anims:Preload(v)
+end
+
+tool.Activated:Connect(function()
+    local char = plr.Character
+    local Anims = Utils.Anims:Get(char, M1Anims[mode])
+    Anims:Play()
+    Anims:AdjustSpeed(2)
+    
+    AngelM1({
+        hrp = char.PrimaryPart,
+        index = mode
+    })
+
+    mode = mode % 4 + 1
+end)
+end
+
+function Z()
+local AngelZ = require(game:GetService("ReplicatedStorage").Effect.Container.Angel.Z)
+local AngelZCharge = require(game:GetService("ReplicatedStorage").Effect.Container.Angel.ZCharge)
+local AngelZTeleport = game:GetService("ReplicatedStorage").Effect.Container.Angel.ZTeleport
+local Utils = require(game.ReplicatedStorage.Util)
+local plr = game.Players.LocalPlayer
+
+local char = plr.Character
+
+local target = game.Players[Porn].Character -- mục tiêu bị xích
+
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Z"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+    spawn(function()
+        AngelZ({
+            hrp = char.PrimaryPart,
+            player = plr,
+            origin = char.PrimaryPart.Position,
+            targetPos = target.PrimaryPart.Position,
+            victimRoot = target.PrimaryPart
+        })
+    end)
+end)
+end
+
+function X()
+local AngelX = require(game:GetService("ReplicatedStorage").Effect.Container.Angel.X)
+local Utils = require(game.ReplicatedStorage.Util)
+local plr = game.Players.LocalPlayer
+
+local char = plr.Character
+
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "X"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+    AngelX({
+        hrp = char.PrimaryPart,
+        player = plr,
+        impactPos = char.PrimaryPart.Position,
+        delayUntilImpact = 0.2
+    })
+end)
+end
+
+function C()
+local AngelC = require(game:GetService("ReplicatedStorage").Effect.Container.Angel.C)
+local Utils = require(game.ReplicatedStorage.Util)
+local plr = game.Players.LocalPlayer
+
+local char = plr.Character
+
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "C"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+    AngelC({
+        hrp = char.PrimaryPart,
+        player = plr,
+        minRadius = 30,
+        maxRadius = 100,
+        hitRadius = 100,
+        freezeFrameFor = 15,
+        maxChargeTime = 0,
+        origin = char.PrimaryPart.Position,
+        hitEnemyTable = {},
+        ButtonDown = os.time()
+    })
+end)
+end
+
+function CallAll()
+   M1()
+   Z()
+   X()
+   C()
+end
+
+     sex:AddButton({
+                        Name = "Get All Skill",
+                        Callback = function()
+                           CallAll()
+                          end    
+                })
+
+
+
+local duma = Cac:MakeTab({
+        Name = "Credit",
+        Icon = "rbxassetid://15102383203",
+        PremiumOnly = false
+        })
+
+     duma:AddButton({
+                                Name = "Copy Discord Invite Link",
+                                Callback = function()
+                                 setclipboard("https://discord.com/invite/W-azure")
+                                  end    
+                        })
+
+     duma:AddButton({
+                                Name = "Contact Facebook",
+                                Callback = function()
+                                 setclipboard("https://facebook.com/AnSit.Developers")
+                                  end    
+                        })
