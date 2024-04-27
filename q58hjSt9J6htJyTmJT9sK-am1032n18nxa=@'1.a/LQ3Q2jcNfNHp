@@ -1,6 +1,6 @@
 local AnSit = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AnSitDz/AnSitHub/main/OrionUiPre')))()
 
-        local Cac = AnSit:MakeWindow({Name = "AnSit | Angel Fighting Style", HidePremium = true, IntroText = "AnSit Hub", Icon = "rbxassetid://15102383203", SaveConfig = true, ConfigFolder = "AnSit Hub"})
+        local Cac = AnSit:MakeWindow({Name = "W-azure | Angel Fighting Style", HidePremium = true, IntroText = "AnSit Hub", Icon = "rbxassetid://15102383203", SaveConfig = true, ConfigFolder = "AnSit Hub"})
 
         Porn = game.Players.LocalPlayer.Name
 
